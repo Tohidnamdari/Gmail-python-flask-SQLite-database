@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Gmail</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+  <link rel="stylesheet" href="./static/login_style.css">
+<script >
+	email=document.getElementById('re_email')
+    re_password=document.getElementById('re_password')
+    info=document.getElementById('info')
+
+    re_password.addEventListener('change',(event)=>{
+        console.log(re_password.value.length)
+        if (re_password.value.length<8)
+    {
+    	console.log("222")
+        info.innerHTML="پسورد باید دارای حداقل 8 رقم باشد"
+        info.style.display='block';
+        info.style.color="#ff0000";
+        info.style.fontSize='12px';
+        info.style.margin='auto';
+
+    }
+    else{
+
+
+        info.style.display='none';
+    }
+    })
+</script>
+</head>
+<body>
+{%include 'flash.html'%}
+
+<!-- partial:index.partial.html -->
+<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3"><span>ورود </span><span>ثبت نام</span></h6>
+			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<label for="reg-log"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+                                  <form action="/login" method="post">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">ورود</h4>
+											<div class="form-group">
+												<input type="text" name="in_email" class="form-style" placeholder="ایمیل" id="in_email" autocomplete="off" required>
+												<i class="input-icon uil uil-at"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="in_pass" class="form-style" placeholder="رمز عبور" id="in_pass" autocomplete="off" required>
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<input  class="btn mt-4" type="submit" value="ورود">
+				      					</div>
+			      					</div>
+                                    </form>
+			      				</div>
+								<div class="card-back">
+                                  <form action="/register" method="post">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">ثبت نام </h4>
+											<div class="form-group">
+												<input type="text" name="re_name" class="form-style" placeholder="نام کامل" id="re_name" autocomplete="off" required>
+												<i class="input-icon uil uil-user"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="text" name="re_email" class="form-style" placeholder="ایمیل" id="re_email" autocomplete="off" value="@tmail.com" required>
+												<i class="input-icon uil uil-at"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="re_password" class="form-style" placeholder="رمز عبور" id="re_password" autocomplete="off" required>
+												<i class="input-icon uil uil-lock-alt"></i>
+												<p id="info"></p>
+											</div>
+											<input  class="btn mt-4" type="submit" value="ثبت نام">
+				      					</div>
+			      					</div>
+                                  </form>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+<!-- partial -->
+
+</body>
+</html>
