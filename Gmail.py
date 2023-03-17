@@ -72,7 +72,9 @@ def inbox():
         return render_template('inbox.html', user=request.cookies.get("user"),message_in=message_in)
     else:
         return redirect('/login')
-
+@app.errorhandler(404)
+def showerror(error):
+    return render_template("error.html"),404
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=80)
